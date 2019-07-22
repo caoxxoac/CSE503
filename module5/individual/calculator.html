@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+  <title>My Calculator</title>
+</head>
+
+<body>
+  <form name="calc">
+    <label for="firstNumber">First Number: </label><br>
+    <input id="num1" type="text" name="firstNum"/><br>
+    <label for="secondNumber">Second Number: </label><br>
+    <input id="num2" type="text" name="secondNum"/><br>
+    <input id="addtion" type="radio" name="calculation" value="add"/>
+    <label for="additionRadio">Addition</label><br>
+    <input id="subtraction" type="radio" name="calculation" value="subtract"/>
+    <label for="subtractionRadio">Subtraction</label><br>
+    <input id="multiplication" type="radio" name="calculation" value="multiply"/>
+    <label for="multiplicationRadio">Multiplication</label><br>
+    <input id="division" type="radio" name="calculation" value="divide"/>
+    <label for="divisionRadio">Division</label><br>
+    <p id="result"/></p>
+  </form>
+
+  <script>
+  var firstNum = document.getElementById("num1").addEventListener("change", calculate, false);
+  var secondNum = document.getElementById("num2").addEventListener("change", calculate, false);
+  var calculations = document.getElementsByName("calculation");
+  for (var i=0; i<calculations.length; i++){
+    calculations[i].addEventListener("change", calculate, false);
+  }
+
+  function calculate(){
+    var firstNum = document.getElementById("num1").value;
+    var secondNum = document.getElementById("num2").value;
+    var calculation;
+    var result = 0;
+    var hasResult = false;
+    var output = document.getElementById("result");
+
+    for (var i=0; i<calculations.length; i++){
+      if (calculations[i].checked){
+        calculation = calculations[i].value;
+      }
+    }
+
+    if (firstNum === "" || secondNum === ""){
+      result = "Please fill in both input fields";
+    }
+    else if (isNaN(firstNum) || isNaN(secondNum)){
+      result = "Invalid inputs";
+    }
+    else{
+      firstNum = parseFloat(firstNum);
+      secondNum = parseFloat(secondNum);
+      if (calculation === "add"){
+        result = firstNum + secondNum;
+        hasResult = true;
+      }
+      else if (calculation === "subtract"){
+        result = firstNum - secondNum;
+        hasResult = true;
+      }
+      else if (calculation === "multiply"){
+        result = firstNum * secondNum;
+        hasResult = true;
+      }
+      else if (calculation === "divide"){
+        if (secondNum === 0){
+          result = "The denominator cannot be 0, try other numbers";
+        }
+        else{
+          result = Math.round(firstNum / secondNum * 100) / 100;
+          hasResult = true;
+        }
+      }
+      else {
+        result = "Select an operation before you calculate!!!";
+      }
+    }
+    if (hasResult){
+      result = "The output of current calculation is " + result;
+    }
+    output.innerHTML = result;
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+table {
+  border: 1px solid black;
+  margin-left: 10%;
+  width: 80%;
+}
+th {
+  border: 1px solid black;
+  padding: 15px;
+  background: lightpink;
+}
+td {
+  border: 1px solid black;
+  text-align: center;
+  padding: 15px;
+  background: palevioletred;
+}
+.otherMonth/*class*/ {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 43%;
+}
+
+.log {
+  background-color: #0099ff;
+  color: black;
+  font-size: 14px;
+  border: 1px solid black;
+  padding: 11px 26px;
+  text-align: center;
+  display: inline-block;
+}
+
+.reg {
+  background-color: #e7e7e7;
+  color: black;
+  font-size: 14px;
+  border: 1px solid black;
+  padding: 11px 26px;
+  text-align: center;
+  display: inline-block;
+}
+
+#loginPart {
+  float: left;
+  padding: 12px;
+}
+
+#registerPart/*id*/ {
+  float: right;
+  padding: 12px;
+}
+
+button:hover {
+  opacity: 0.75;
+}
+
+input[type=text], input[type=password] {
+  width: 30%;
+  padding: 6px 12px;
+  margin: 4px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.header {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.header2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.chng {
+  background-color: #b7b7b7;
+  color: black;
+  font-size: 11px;
+  border: 1px solid black;
+  padding: 8px 16px;
+  text-align: center;
+  display: inline-block;
+}
+
+input[class=ctitle] {
+  width: 20%;
+  border: solid 1px black;
+}
+
+.manip {
+  background-color: #e7e7e7;
+  color: black;
+  font-size: 12px;
+  border: 1px solid black;
+  padding: 8px 26px;
+  text-align: center;
+  display: inline-block;
+  margin: 4px 2px;
+}
+
+#password1, #password2 {
+  width: 30%;
+  padding: 6px 12px;
+  margin: 4px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}

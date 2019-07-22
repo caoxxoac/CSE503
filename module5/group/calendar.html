@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>My Calendar</title>
+  <link rel="stylesheet" type="text/css" href="calendar.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div id="loginPart" class="login">
+    <p class="header">Login</p>
+    <input type="text" id="username" name="username" placeholder="Enter Username"/>
+    <input type="password" id="password" name="password" placeholder="Enter Password"/>
+    <button id="login" name="login" value="login" class="log">Login</button>
+  </div>
+
+  <div id="registerPart" class="register">
+    <p class="header">Register</p>
+    <input type="text" id="registerUsername" name="username" placeholder="Enter Username"/>
+    <input type="password" id="registerPassword" name="password" placeholder="Enter Password"/>
+    <button id="register" name="register" value="register" class="reg">Register</button>
+  </div>
+
+  <div id="passwordChange" class="password" style="display: none">
+    <p class="header">Change Password</p>
+    <input type="password" id="password1" name="password" placeholder="Enter New Password"/>
+    <input type="password" id="password2" name="password" placeholder="Enter New Password Again"/>
+    <button id="change" name="change" value="change" class="reg">Change Password</button>
+  </div>
+
+  <div id="logoutPart" class="logout" style="display: none">
+    <button id="logout" name="logout" value="logout" class="reg">Log Out</button>
+  </div>
+
+  <br/><br/><br/>
+
+
+  <div id="userPart" class="user" style="display: none">
+    <h1 id="user"></h1>
+  </div>
+
+  <br/><br/><br/>
+  <hr id="sep"/>
+
+  <div class="otherMonth">
+    <button id="previousMonth" name="previous" value="previous" class="chng">&lt; Previous Month</button>
+    <button id="nextMonth" name="next" value="next" class="chng">Next Month &gt;</button>
+  </div>
+
+  <div class="calendar">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="7" id="currentMonth"></th>
+        </tr>
+      </thead>
+      <tr>
+        <th>Sun</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+      </tr>
+      <tr>
+        <td id="01"></td>
+        <td id="02"></td>
+        <td id="03"></td>
+        <td id="04"></td>
+        <td id="05"></td>
+        <td id="06"></td>
+        <td id="07"></td>
+      </tr>
+      <tr>
+        <td id="08"></td>
+        <td id="09"></td>
+        <td id="10"></td>
+        <td id="11"></td>
+        <td id="12"></td>
+        <td id="13"></td>
+        <td id="14"></td>
+      </tr>
+      <tr>
+        <td id="15"></td>
+        <td id="16"></td>
+        <td id="17"></td>
+        <td id="18"></td>
+        <td id="19"></td>
+        <td id="20"></td>
+        <td id="21"></td>
+      </tr>
+      <tr>
+        <td id="22"></td>
+        <td id="23"></td>
+        <td id="24"></td>
+        <td id="25"></td>
+        <td id="26"></td>
+        <td id="27"></td>
+        <td id="28"></td>
+      </tr>
+      <tr>
+        <td id="29"></td>
+        <td id="30"></td>
+        <td id="31"></td>
+        <td id="32"></td>
+        <td id="33"></td>
+        <td id="34"></td>
+        <td id="35"></td>
+      </tr>
+      <tr>
+        <td id="36"></td>
+        <td id="37"></td>
+        <td id="38"></td>
+        <td id="39"></td>
+        <td id="40"></td>
+        <td id="41"></td>
+        <td id="42"></td>
+      </tr>
+    </table>
+  </div>
+
+  <br/>
+
+  <div id="eventManipulation" class="wrapper">
+    <div id="disableEvent" style="display: none">
+      <hr id="afterlogin0"/>
+      <button id="disable" name="disable" value="disable" class="manip">Hide Event</button>
+      <br/><br/><br/>
+    </div>
+
+    <div id="eventCreate" style="display: none" class="eCreate">
+      <hr id="afterlogin1"/>
+      <p class="header2">Create Event</p>
+      <label>Title: <input type="text" id="eventTitle" class="ctitle"/></label><br>
+      <label>Date:
+        <input type="date" id="eventDate" class="cdate"/></label><br>
+      <label>Time:
+        <input type="time" id="eventTime" class="ctime"/></label><br>
+      <button id="create" name="create" value="create" class="manip">Create Event</button>
+      <br/><br/><br/>
+    </div>
+
+    <div id="eventUpdate" style="display: none" class="eUpdate">
+      <hr id="afterlogin2"/>
+      <p class="header2">Edit Event</p>
+      <label>Original Title: <input type="text" id="originalTitle" class="ctitle"/></label><br>
+      <label>Original Date: <input type="date" id="originalDate" class="cdate"/></label><br>
+      <label>Original Time: <input type="time" id="originalTime" class="ctime"/></label><br/><br/>
+      <label>Updated Title: <input type="text" id="updateTitle" class="ctitle"/></label><br>
+      <label>Updated Date: <input type="date" id="updateDate" class="cdate"/></label><br>
+      <label>Updated Time: <input type="time" id="updateTime" class="ctime"/></label><br>
+      <button id="edit" name="edit" value="edit" class="manip">Edit Event</button>
+      <br/><br/><br/>
+    </div>
+
+    <div id="eventDelete" style="display: none" class="eDelete">
+      <hr id="afterlogin3"/>
+      <p class="header2">Delete Event</p>
+      <label>Title: <input type="text" id="deleteTitle" class="ctitle"/></label><br>
+      <label>Date: <input type="date" id="deleteDate" class="cdate"/></label><br>
+      <label>Time: <input type="time" id="deleteTime" class="ctime"/></label><br>
+      <button id="delete" name="delete" value="delete" class="manip">Delete Event</button>
+      <br/><br/><br/>
+    </div>
+
+    <div id="eventShare" style="display: none" class="eShare">
+      <hr id="afterlogin4"/>
+      <p class="header2">Share Event</p>
+      <label>Title: <input type="text" id="shareTitle" class="ctitle"/></label><br>
+      <label>Date: <input type="date" id="shareDate" class="cdate"/></label><br>
+      <label>Time: <input type="time" id="shareTime" class="ctime"/></label><br>
+      <label>User Share To: <input type="text" id="shareUser" class="ctitle"/></label><br>
+      <button id="share" name="share" value="share" class="manip">Share Event</button>
+    </div>
+
+  </div>
+
+
+  <script src="register.js"></script>
+  <script src="login.js"></script>
+  <script src="changePassword.js"></script>
+  <script src="logout.js"></script>
+  <script src="calendarHelper.js"></script>
+  <script src="getCalendarDate.js"></script>
+  <script src="createEvent.js"></script>
+  <script src="editEvent.js"></script>
+  <script src="showEvent.js"></script>
+  <script src="deleteEvent.js"></script>
+  <script src="shareEvent.js"></script>
+  <script src="disableEvent.js"></script>
+</body>
+</html>
