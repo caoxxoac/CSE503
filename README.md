@@ -1,1 +1,1 @@
-# CSE503
+# CSE503: Web Programming
