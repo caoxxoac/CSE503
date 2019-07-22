@@ -6,9 +6,10 @@ if ($username == NULL) {
     header("Location: index.html");
 }
 ?>
-<html>
+<html lang="en">
     <head>
         <title>All Files You Uploaded</title>
+        <link rel="stylesheet" type="text/css" href="simpleLook.css" />
     </head>
     <body>
         <h3>File List</h3>
@@ -17,21 +18,23 @@ if ($username == NULL) {
         </form>
 
     <?php
+    // if the user hasn't uploaded anything before, there will be no directory for
+    // this user. If the user has a directory, we just open it, and get the name of
+    // each file, but we don't want the file '.' and '..' displayed as our outcome
     $filePath = "/home/xcao22/users/".$username;
     if (is_dir($filePath)){
         $fileList = opendir($filePath);
         while (false !== ($file= readdir($fileList))){
             // we dont wan't the "." and ".." file printed out
             if ($file != "." && $file != ".."){
-                echo "$file<br>";
+                echo "<p>$file</p>";
             }
         }
         closedir($fileList);
+
     }
     else {
-        echo "The directory does not exist or You have no access to this directory. Going back in 4 seconds";
-        header("refresh: 4; url=fileManagement.php");
-        exit;
+        echo "<p>You haven't uploaded any file yet!</p>";
     }
     if (isset($_POST["back"])){
         header("Location: fileManagement.php");

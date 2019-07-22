@@ -25,15 +25,15 @@
   if ($firstNum == NULL || $secondNum == NULL){
     echo "Please fill in both fields";
   }
-  else {
+  else if (is_numeric($firstNum) && is_numeric($secondNum)){
     if ($calcType == "addition"){
-      echo "$firstNum + $secondNum equals to $addition";
+      echo "$firstNum + $secondNum = ".round($addition, 2);
     }
     elseif ($calcType == "subtraction") {
-      echo "$firstNum - $secondNum equals to $subtraction";
+      echo "$firstNum - $secondNum = ".round($subtraction, 2);
     }
     elseif ($calcType == "multiplication") {
-      echo "$firstNum * $secondNum equals to $multiplication";
+      echo "$firstNum * $secondNum = ".round($multiplication, 2);
     }
     elseif ($calcType == "division") {
       if ($secondNum == 0) {
@@ -41,9 +41,12 @@
       }
       else {
         $division = $firstNum / $secondNum;
-        echo "$firstNum / $secondNum equals to $division";
+        echo "$firstNum / $secondNum = ".round($division, 2);
       }
     }
+  }
+  else {
+    echo "Please make sure your inputs are numbers!";
   }
   ?>
 </body>
