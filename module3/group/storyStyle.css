@@ -1,0 +1,21 @@
+/*Source: https://www.w3schools.com/howto/howto_css_login_form.asp Code formatting and CSS properties borrowed from website, but most values changed and some properties omitted*/
+input.title[type=text]{
+    width: 40%;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button:hover{
+	opacity: 0.8;
+}
+
+button{
+    background-color: gray;
+    color: black;
+    padding: 1% 4%;
+    margin: 2%;
+    border: 1px solid black;
+	width: 20%;
+}
+/* end of sourced code */

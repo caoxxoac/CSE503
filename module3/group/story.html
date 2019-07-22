@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	  <title>Post a Story</title>
+	  <link rel="stylesheet" type="text/css" href="storyStyle.css"/>
+	</head>
+
+	<body>
+	<h1>Post a Story</h1>
+	  <form name="create" action="storyCreate.php" method="POST">
+		<label>Title:</label><input class="title" type="text" name="storytitle"/><br>
+		<label>Story:</label>
+		<textarea name="storycontent" rows="5" cols="40">
+		</textarea><br>
+		<button type="submit" name="storycreate" value="Create Story">Post Story</button>
+	  </form>
+	  <form name="show" action="showStory.php" method="POST">
+		<button type="submit" name="showStory" value="Show Story">Return Home</button>
+	  </form>
+	  <form name="logout" action="logout.php" method="POST">
+		<button type="submit" name="logout" value="Log Out">Log Out</button>
+	  </form>
+	</body>
+</html>

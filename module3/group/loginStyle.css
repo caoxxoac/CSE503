@@ -1,0 +1,47 @@
+body{
+    margin-top: 4%;
+	margin-left: auto;
+	margin-right: auto;
+    border: 3px solid black;
+    padding: 3%;
+    width: 25%;
+    text-align: center;
+    background-color: #727272;
+}
+
+/*Source: https://www.w3schools.com/howto/howto_css_login_form.asp Code formatting and CSS properties borrowed from website, but most values changed and some properties omitted*/
+input[type=text]{
+    width: 60%;
+    padding: 2% 7%;
+    margin: 2% 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type=password]{
+    width: 60%;
+    padding: 2% 7%;
+    margin: 2% 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button:hover{
+	opacity: 0.8;
+}
+
+button{
+    background-color: gray;
+    color: black;
+    padding: 2% 7%;
+    margin: 2%;
+    border: 1px solid black;
+	width: 60%;
+}
+/* end of sourced code */
+
+h1{
+	text-align: center;
+}
